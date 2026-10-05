@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="quickstart.AppHost/quickstart.AppHost.csproj" />
+  <Project Path="quickstart.ServiceDefaults/quickstart.ServiceDefaults.csproj" />
+</Solution>
