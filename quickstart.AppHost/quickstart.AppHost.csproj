@@ -4,6 +4,7 @@
     <ProjectReference Include="..\IdentityServer\IdentityServer.csproj" />
     <ProjectReference Include="..\Api\Api.csproj" />
     <ProjectReference Include="..\Client\Client.csproj" />
+    <ProjectReference Include="..\WebClient\WebClient.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -14,4 +14,8 @@ var myworkerapp = builder.AddProject<Projects.Client>("myworkerapp")
     .WithReference(identityServer)
     .WithReference(api);
 
+var mywebapp = builder.AddProject<Projects.WebClient>("WebClient")
+    .WithReference(identityServer)
+    .WithReference(api);
+
 builder.Build().Run();

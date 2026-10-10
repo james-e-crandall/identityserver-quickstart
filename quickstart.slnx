@@ -6,4 +6,5 @@
   <Project Path="IdentityServer/IdentityServer.csproj" />
   <Project Path="quickstart.AppHost/quickstart.AppHost.csproj" />
   <Project Path="quickstart.ServiceDefaults/quickstart.ServiceDefaults.csproj" />
+  <Project Path="WebClient/WebClient.csproj" />
 </Solution>
