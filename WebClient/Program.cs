@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(options =>
@@ -17,6 +19,12 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Clear();
         options.Scope.Add("openid");
         options.Scope.Add("profile");
+
+        //ASP.NET Core And API access
+        options.Scope.Add("api1");
+        options.Scope.Add("verification");
+        options.ClaimActions.MapJsonKey("email_verified", "email_verified");
+        options.GetClaimsFromUserInfoEndpoint = true;
 
         options.MapInboundClaims = false; // Don't rename claim types
 
@@ -45,7 +53,7 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 app.MapRazorPages()
-    .RequireAuthorization()
+    //.RequireAuthorization()
    .WithStaticAssets();
 
 app.Run();
