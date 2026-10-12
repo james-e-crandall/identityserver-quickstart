@@ -1,3 +1,4 @@
+using Duende.AccessTokenManagement.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,10 +30,20 @@ builder.Services.AddAuthentication(options =>
         options.MapInboundClaims = false; // Don't rename claim types
 
         options.SaveTokens = true;
+        //token-management
+        options.Scope.Add("offline_access");
     });
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//token-management
+builder.Services.AddOpenIdConnectAccessTokenManagement();
+
+builder.Services.AddUserAccessTokenHttpClient("apiClient", configureClient: client =>
+{
+    client.BaseAddress = new Uri("https://localhost:6001");
+});
 
 var app = builder.Build();
 
